@@ -1,0 +1,546 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Exo 2 font */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap');
+
+/* Apply Exo 2 to everything by default */
+* {
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* Custom font family utility */
+.font-exo2 {
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* Pure Chrome Metallic 3D Text Effect - Main Logo */
+.metallic-text {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  color: #f8f9fa;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e8e8e8 15%,
+    #d1d1d1 30%,
+    #bababa 45%,
+    #a3a3a3 60%,
+    #8c8c8c 75%,
+    #757575 90%,
+    #5e5e5e 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 1px 0 #ffffff,
+    0 2px 0 #e0e0e0,
+    0 3px 0 #c0c0c0,
+    0 4px 0 #a0a0a0,
+    0 5px 0 #808080,
+    0 6px 0 #606060,
+    0 7px 0 #404040,
+    0 8px 0 #202020,
+    0 9px 0 #000000,
+    0 10px 10px rgba(0,0,0,0.4),
+    0 15px 20px rgba(0,0,0,0.3),
+    0 20px 30px rgba(0,0,0,0.2);
+  filter: 
+    drop-shadow(0 0 5px rgba(255,255,255,0.8))
+    drop-shadow(0 0 10px rgba(0,0,0,0.5));
+  letter-spacing: 0.05em;
+}
+
+/* Chrome Navigation Links */
+.metallic-nav-link {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 800;
+  color: #f0f0f0;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f0f0f0 20%,
+    #e0e0e0 40%,
+    #d0d0d0 60%,
+    #c0c0c0 80%,
+    #b0b0b0 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 1px 0 #ffffff,
+    0 2px 0 #e0e0e0,
+    0 3px 0 #c0c0c0,
+    0 4px 0 #a0a0a0,
+    0 5px 5px rgba(0,0,0,0.3),
+    0 8px 10px rgba(0,0,0,0.2);
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.6));
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.metallic-nav-link:hover {
+  background: linear-gradient(
+    180deg,
+    #ffd700 0%,
+    #ffed4e 20%,
+    #fbbf24 40%,
+    #f59e0b 60%,
+    #d97706 80%,
+    #b45309 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 1px 0 #ffd700,
+    0 2px 0 #fbbf24,
+    0 3px 0 #f59e0b,
+    0 4px 0 #d97706,
+    0 5px 5px rgba(0,0,0,0.4),
+    0 8px 10px rgba(0,0,0,0.3);
+  filter: 
+    drop-shadow(0 0 5px rgba(255,215,0,0.8))
+    drop-shadow(0 0 10px rgba(251,191,36,0.6));
+  transform: translateY(-1px);
+}
+
+/* Chrome Plate Logo Effect */
+.chrome-plate-logo {
+  position: relative;
+  display: inline-block;
+  padding: 16px 20px;
+  background: linear-gradient(
+    145deg,
+    #f8f9fa 0%,
+    #e9ecef 15%,
+    #dee2e6 30%,
+    #ced4da 45%,
+    #adb5bd 60%,
+    #868e96 75%,
+    #6c757d 90%,
+    #495057 100%
+  );
+  border: 2px solid #adb5bd;
+  border-radius: 8px;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    inset 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.chrome-plate-logo:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    inset 1px 0 0 rgba(255, 255, 255, 0.4),
+    inset -1px 0 0 rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #f8f9fa 15%,
+    #e9ecef 30%,
+    #dee2e6 45%,
+    #ced4da 60%,
+    #adb5bd 75%,
+    #868e96 90%,
+    #6c757d 100%
+  );
+}
+
+/* Logo color change - ALL logos use same filter rules */
+.chrome-plate-logo img {
+  filter: brightness(0) invert(1) !important;
+}
+
+.chrome-plate-logo:hover img {
+  filter: none !important;
+}
+
+/* Chrome Plate Screws */
+.chrome-plate-logo::before,
+.chrome-plate-logo::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(
+    circle,
+    #495057 0%,
+    #6c757d 30%,
+    #adb5bd 60%,
+    #dee2e6 100%
+  );
+  border: 1px solid #343a40;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.chrome-plate-logo::before {
+  top: 6px;
+  left: 6px;
+}
+
+.chrome-plate-logo::after {
+  top: 6px;
+  right: 6px;
+}
+
+/* Additional screws for bottom corners */
+.chrome-plate-logo .screw-bottom-left,
+.chrome-plate-logo .screw-bottom-right {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(
+    circle,
+    #495057 0%,
+    #6c757d 30%,
+    #adb5bd 60%,
+    #dee2e6 100%
+  );
+  border: 1px solid #343a40;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  bottom: 6px;
+}
+
+.chrome-plate-logo .screw-bottom-left {
+  left: 6px;
+}
+
+.chrome-plate-logo .screw-bottom-right {
+  right: 6px;
+}
+
+/* Screw slot lines */
+.chrome-plate-logo::before {
+  background-image: 
+    radial-gradient(circle, #495057 0%, #6c757d 30%, #adb5bd 60%, #dee2e6 100%),
+    linear-gradient(90deg, transparent 2px, #343a40 2px, #343a40 6px, transparent 6px);
+  background-size: 100% 100%, 100% 1px;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.chrome-plate-logo::after {
+  background-image: 
+    radial-gradient(circle, #495057 0%, #6c757d 30%, #adb5bd 60%, #dee2e6 100%),
+    linear-gradient(90deg, transparent 2px, #343a40 2px, #343a40 6px, transparent 6px);
+  background-size: 100% 100%, 100% 1px;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.chrome-plate-logo .screw-bottom-left,
+.chrome-plate-logo .screw-bottom-right {
+  background-image: 
+    radial-gradient(circle, #495057 0%, #6c757d 30%, #adb5bd 60%, #dee2e6 100%),
+    linear-gradient(90deg, transparent 2px, #343a40 2px, #343a40 6px, transparent 6px);
+  background-size: 100% 100%, 100% 1px;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* Chrome Plate Service Box Effect */
+.chrome-plate-service {
+  position: relative;
+  display: block;
+  padding: 0;
+  background: linear-gradient(
+    145deg,
+    #f8f9fa 0%,
+    #e9ecef 15%,
+    #dee2e6 30%,
+    #ced4da 45%,
+    #adb5bd 60%,
+    #868e96 75%,
+    #6c757d 90%,
+    #495057 100%
+  );
+  border: 3px solid #adb5bd;
+  border-radius: 12px;
+  box-shadow: 
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2),
+    inset 2px 0 0 rgba(255, 255, 255, 0.3),
+    inset -2px 0 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+/* HAMMERED/STAMPED INTO METAL Text Effect - ALL TEXT GETS SAME DEEP EFFECT */
+.chrome-plate-service h3,
+.chrome-plate-service p,
+.chrome-plate-service h4 {
+  font-family: 'Exo 2', sans-serif;
+  color: #1a202c; /* Very dark text - deep recessed into metal */
+  /* SAME DEEP EMBOSSED EFFECT FOR ALL TEXT */
+  text-shadow: 
+    /* Sharp highlight on top edge - metal surface catching light */
+    0 1px 0 rgba(255, 255, 255, 1),
+    0 2px 0 rgba(255, 255, 255, 0.8),
+    /* Deep black shadows - the punched recess */
+    0 -1px 0 rgba(0, 0, 0, 0.9),
+    0 -2px 0 rgba(0, 0, 0, 0.7),
+    0 -3px 0 rgba(0, 0, 0, 0.5),
+    /* Side highlights and shadows */
+    1px 0 0 rgba(255, 255, 255, 0.7),
+    2px 0 0 rgba(255, 255, 255, 0.4),
+    -1px 0 0 rgba(0, 0, 0, 0.6),
+    -2px 0 0 rgba(0, 0, 0, 0.3),
+    /* Deep inset shadow - the stamped depression */
+    0 0 4px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Main heading gets extra bold weight and letter spacing */
+.chrome-plate-service h3 {
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+/* Service titles get bold weight */
+.chrome-plate-service h4 {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Description text gets BOLD weight too - more consistent look */
+.chrome-plate-service p {
+  font-weight: 600; /* CHANGED FROM 400 TO 600 FOR BETTER CONSISTENCY */
+  letter-spacing: 0.02em; /* INCREASED FROM 0.01em FOR BETTER READABILITY */
+}
+
+/* Legacy class for backward compatibility */
+.embossed-repair-services {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 900;
+  color: #4a5568;
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.8),
+    0 -1px 0 rgba(0, 0, 0, 0.6),
+    1px 0 0 rgba(255, 255, 255, 0.6),
+    -1px 0 0 rgba(0, 0, 0, 0.4),
+    0 2px 3px rgba(0, 0, 0, 0.5),
+    0 3px 6px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+
+/* Service Box Corner Screws */
+.chrome-plate-service .screw-top-left,
+.chrome-plate-service .screw-top-right,
+.chrome-plate-service .screw-bottom-left,
+.chrome-plate-service .screw-bottom-right {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(
+    circle,
+    #495057 0%,
+    #6c757d 30%,
+    #adb5bd 60%,
+    #dee2e6 100%
+  );
+  border: 2px solid #343a40;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  background-image: 
+    radial-gradient(circle, #495057 0%, #6c757d 30%, #adb5bd 60%, #dee2e6 100%),
+    linear-gradient(90deg, transparent 3px, #343a40 3px, #343a40 9px, transparent 9px);
+  background-size: 100% 100%, 100% 1px;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.chrome-plate-service .screw-top-left {
+  top: 8px;
+  left: 8px;
+}
+
+.chrome-plate-service .screw-top-right {
+  top: 8px;
+  right: 8px;
+}
+
+.chrome-plate-service .screw-bottom-left {
+  bottom: 8px;
+  left: 8px;
+}
+
+.chrome-plate-service .screw-bottom-right {
+  bottom: 8px;
+  right: 8px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Exo 2', sans-serif;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Industrial metal texture effect */
+.metal-texture {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 25%, #374151 50%, #1f2937 75%, #374151 100%);
+  background-size: 20px 20px;
+}
+
+/* Chain border effect */
+.chain-border {
+  position: relative;
+}
+
+.chain-border:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #f59e0b 0px,
+    #f59e0b 10px,
+    #374151 10px,
+    #374151 20px
+  );
+}
+
+/* Steel plate button effect */
+.steel-button {
+  position: relative;
+  background: linear-gradient(135deg, #6b7280 0%, #374151 50%, #6b7280 100%);
+  border: 2px solid #9ca3af;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-family: 'Exo 2', sans-serif;
+}
+
+.steel-button:hover {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 50%, #9ca3af 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+    0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Industrial glow effects */
+.industrial-glow {
+  box-shadow: 
+    0 0 10px rgba(245, 158, 11, 0.3),
+    0 0 20px rgba(245, 158, 11, 0.2),
+    0 0 30px rgba(245, 158, 11, 0.1);
+}
+
+/* Gear animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-gear {
+  animation: rotate 20s linear infinite;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  .mobile-center {
+    text-align: center;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-800 {
+    background-color: #000000;
+  }
+  
+  .bg-gray-900 {
+    background-color: #000000;
+  }
+  
+  .text-gray-300 {
+    color: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Force Exo 2 on all elements */
+h1, h2, h3, h4, h5, h6, p, span, div, button, input, select, textarea, label, a {
+  font-family: 'Exo 2', sans-serif !important;
+}
