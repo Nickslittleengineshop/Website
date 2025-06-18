@@ -94,7 +94,8 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg group"
                   >
-                    <Facebook className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-blue-100" />
+                    <Facebook className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-blue-100" aria-hidden="true" />
+                    <span className="sr-only">Visit us on Facebook</span>
                   </a>
                 </div>
               </div>
