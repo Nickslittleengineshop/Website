@@ -349,7 +349,7 @@
   transition: all 0.3s ease;
 }
 
-/*/* Service Box Corner Screws */
+/* Service Box Corner Screws */
 .chrome-plate-service .screw-top-left,
 .chrome-plate-service .screw-top-right,
 .chrome-plate-service .screw-bottom-left,
@@ -376,8 +376,6 @@
   background-size: 100% 100%, 100% 1px;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
-
-  /* Add this to make screws always on top */
   z-index: 20;
 }
 
@@ -399,14 +397,6 @@
 .chrome-plate-service .screw-bottom-right {
   bottom: 8px;
   right: 8px;
-}
-
-/* Adjust padding inside chrome-plate-service to avoid logo overlapping screws */
-.chrome-plate-service > .relative.z-10 {
-  padding-top: 16px;   /* increase from 6px to 16px */
-  padding-bottom: 16px; /* increase from 6px to 16px */
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 /* Smooth scrolling */
@@ -484,7 +474,6 @@ body {
     inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     0 6px 12px rgba(0, 0, 0, 0.4);
 }
-
 
 /* Industrial glow effects */
 .industrial-glow {
