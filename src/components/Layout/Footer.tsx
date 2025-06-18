@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
               
               <div className="relative z-10 p-6 md:p-8">
                 <img 
-                  src="https://raw.githubusercontent.com/Nickslittleengineshop/website-images/refs/heads/main/Nick's%20little%20engine%20shop%20logo_result.webp" 
+                  src="https://raw.githubusercontent.com/Nickslittleengineshop/website-images/refs/heads/main/Nick's%20little%20engine%20shop%20logo.webp" 
                   alt="Nick's Little Engine Shop Logo" 
                   className="h-20 md:h-28 w-auto transition-opacity duration-300 hover:opacity-80"
                 />
