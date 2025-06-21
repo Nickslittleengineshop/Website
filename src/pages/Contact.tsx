@@ -42,7 +42,7 @@ const ContactForm: React.FC = () => {
     formDataToSend.append('source', 'Nick\'s Little Engine Shop Website');
 
     try {
-      await fetch('https://myhooks22.duckdns.org/webhook/3a9a5a87-409d-48a9-b7e1-8a09de0c09b3', {
+      await fetch('https://hook.us2.make.com/bddm2qxmo63bu4omiow1kkvx8efc9qkq', {
         method: 'POST',
         body: formDataToSend,
         mode: 'no-cors'
