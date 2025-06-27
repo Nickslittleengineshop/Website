@@ -189,9 +189,9 @@ const Contact: React.FC = () => {
               <div className="screw-bottom-right"></div>
               
               <div className="text-center py-8 md:py-12 px-6 md:px-8">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4">
                   CONTACT US
-                </h2>
+                </h3>
                 <p className="font-exo2 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto">
                   Ready to get your equipment running right? Contact us for all your small engine repair needs.
                 </p>
@@ -210,7 +210,7 @@ const Contact: React.FC = () => {
             <div className="screw-bottom-right"></div>
             
             <div className="relative z-10 p-6 md:p-8">
-              <h3 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT FORM</h3>
+              <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT FORM</h4>
               <ContactForm />
             </div>
           </div>
@@ -227,7 +227,7 @@ const Contact: React.FC = () => {
               <div className="screw-bottom-right"></div>
               
               <div className="relative z-10 p-6 md:p-8">
-                <h3 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">SHOP HOURS</h3>
+                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">SHOP HOURS</h4>
                 <div className="space-y-3">
                   <p className="font-exo2 text-base md:text-lg lg:text-xl flex justify-between">
                     <span>Monday - Friday:</span>
@@ -254,7 +254,7 @@ const Contact: React.FC = () => {
               <div className="screw-bottom-right"></div>
               
               <div className="relative z-10 p-6 md:p-8">
-                <h3 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT INFO</h3>
+                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT INFO</h4>
                 <div className="space-y-4">
                   <p className="font-exo2 text-base md:text-lg lg:text-xl flex items-center space-x-4">
                     <Phone className="flex-shrink-0" size={24} aria-hidden="true" />
