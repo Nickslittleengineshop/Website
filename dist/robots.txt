@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nickslittleengineshop.net/sitemap.xml
+
+# Allow all search engines to crawl the site
+# Nick's Little Engine Shop - Small Engine Repair, Motorcycle Repair, ATV Service
+# Serving Lake George, Glens Falls, Saratoga Springs, and Saratoga County NY
+
+# Block any admin or sensitive areas (none currently)
+# Allow crawling of all public pages
+
+# Crawl-delay: 1
