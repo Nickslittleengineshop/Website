@@ -121,18 +121,32 @@ const HeroSlider: React.FC = () => {
         </div>
       </div>
 
-      {/* Dynamic Content Overlay - Synced with Images */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="text-center px-4 md:px-6 max-w-4xl">
-          <h2 className="font-exo2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 md:mb-6 tracking-wider drop-shadow-2xl transition-all duration-1000 ease-in-out">
-            {slides[displayedSlide].title}
-          </h2>
-          {slides[displayedSlide].subtitle && (
-            <p className="font-exo2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-yellow-400 drop-shadow-xl transition-all duration-1000 ease-in-out">
-              {slides[displayedSlide].subtitle}
-            </p>
-          )}
-        </div>
+      {/* Slide Indicators - Fixed Touch Targets (44x44px minimum) */}
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2 md:space-x-3" role="tablist" aria-label="Slide navigation">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`min-w-[44px] min-h-[44px] rounded-full transition-all duration-1000 flex items-center justify-center group focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black ${
+              index === currentSlide
+                ? 'bg-yellow-400 bg-opacity-90'
+                : 'bg-white bg-opacity-50 hover:bg-opacity-80'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+            aria-selected={index === currentSlide}
+            role="tab"
+            tabIndex={0}
+          >
+            {/* Inner visual indicator */}
+            <div
+              className={`rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? 'bg-white w-6 h-3 md:w-8 md:h-3'
+                  : 'bg-white bg-opacity-80 w-3 h-3 group-hover:w-4 group-hover:h-4'
+              }`}
+            />
+          </button>
+        ))}
       </div>
     </div>
   );

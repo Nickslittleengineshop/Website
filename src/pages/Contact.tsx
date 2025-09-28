@@ -1,18 +1,186 @@
-import React from 'react';
-import { Facebook } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
-interface FooterProps {
-  handleNavClick: (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => void;
-}
+const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    serviceType: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email) {
+      alert('Please fill in required fields (Name and Email)');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    // Create FormData instead of JSON
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('serviceType', formData.serviceType || 'Not specified');
+    formDataToSend.append('message', formData.message);
+    formDataToSend.append('timestamp', new Date().toISOString());
+    formDataToSend.append('source', 'Nick\'s Little Engine Shop Website');
+
+    try {
+      await fetch('https://hook.us2.make.com/bddm2qxmo63bu4omiow1kkvx8efc9qkq', {
+        method: 'POST',
+        body: formDataToSend,
+        mode: 'no-cors'
+      });
+
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        serviceType: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <footer className="bg-black py-8 md:py-12">
+    <>
+      <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+        <div>
+          <label htmlFor="contact-name" className="sr-only">
+            Your Name (Required)
+          </label>
+          <input
+            id="contact-name"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            placeholder="Your Name *"
+            className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
+            required
+            aria-required="true"
+          />
+        </div>
+        <div>
+          <label htmlFor="contact-email" className="sr-only">
+            Email Address (Required)
+          </label>
+          <input
+            id="contact-email"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            placeholder="Email Address *"
+            className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
+            required
+            aria-required="true"
+          />
+        </div>
+        <div>
+          <label htmlFor="contact-phone" className="sr-only">
+            Phone Number (Optional)
+          </label>
+          <input
+            id="contact-phone"
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            placeholder="Phone Number"
+            className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
+          />
+        </div>
+        <div>
+          <label htmlFor="contact-service-type" className="sr-only">
+            Service Type (Optional)
+          </label>
+          <select 
+            id="contact-service-type"
+            name="serviceType"
+            value={formData.serviceType}
+            onChange={handleInputChange}
+            className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
+            aria-label="Select the type of service you need"
+          >
+            <option value="">Select Service Type</option>
+            <option value="Engine Repair">Engine Repair</option>
+            <option value="Routine Maintenance">Routine Maintenance</option>
+            <option value="Electrical Issues">Electrical Issues</option>
+            <option value="Carburetor Service">Carburetor Service</option>
+            <option value="Parts & Sales">Parts & Sales</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="contact-message" className="sr-only">
+            Message about your equipment and what's wrong (Optional)
+          </label>
+          <textarea
+            id="contact-message"
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
+            placeholder="Tell us about your equipment and what's wrong"
+            rows={4}
+            className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 resize-none text-base md:text-lg"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="steel-button font-exo2 font-bold py-4 px-8 md:py-5 md:px-10 text-xl md:text-2xl text-red-600 w-full disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
+        </button>
+      </form>
+      
+      {/* Status Messages */}
+      {submitStatus === 'success' && (
+        <div className="mt-4 p-4 bg-green-800 border border-green-600 rounded text-white text-center" role="alert">
+          <p className="font-exo2">Message sent successfully! We'll get back to you soon.</p>
+        </div>
+      )}
+      
+      {submitStatus === 'error' && (
+        <div className="mt-4 p-4 bg-red-800 border border-red-600 rounded text-white text-center" role="alert">
+          <p className="font-exo2">Error sending message. Please try again or call us directly.</p>
+        </div>
+      )}
+    </>
+  );
+};
+
+const Contact: React.FC = () => {
+  return (
+    <section id="contact" className="py-12 md:py-20 bg-black relative">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
-          
-          {/* Logo - Left Side - Steel Plate Box */}
-          <div className="flex justify-center lg:justify-start">
+        
+        {/* Steel Plate Header */}
+        <div className="relative mb-10 md:mb-16">
+          <div className="relative mx-auto max-w-4xl">
             <div className="chrome-plate-service relative">
               {/* Corner Screws */}
               <div className="screw-top-left"></div>
@@ -20,90 +188,20 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
               <div className="screw-bottom-left"></div>
               <div className="screw-bottom-right"></div>
               
-              <div className="relative z-10 p-6 md:p-8">
-                <img 
-                  src="https://res.cloudinary.com/dbtenfjzd/image/upload/v1749508066/Nick_s_little_engine_shop_logo_zfeqtt.png" 
-                  alt="Nick's Little Engine Shop Logo" 
-                  className="h-20 md:h-28 w-auto transition-opacity duration-300 hover:opacity-80"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Legal - Center - Steel Plate Box */}
-          <div className="flex justify-center">
-            <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
-              <div className="screw-top-left"></div>
-              <div className="screw-top-right"></div>
-              <div className="screw-bottom-left"></div>
-              <div className="screw-bottom-right"></div>
-              
-              <div className="relative z-10 p-6 md:p-8">
-                <div className="flex flex-col items-center space-y-4 md:space-y-5">
-                  <h4 className="font-exo2 text-lg md:text-xl lg:text-2xl font-bold">LEGAL</h4>
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-center">
-                    <p className="font-exo2 text-sm md:text-base">
-                      <a
-                        href="/privacy-policy"
-                        onClick={(e) => handleNavClick(e, 'privacy-policy')}
-                        className="hover:opacity-80 transition-opacity duration-300"
-                      >
-                        Privacy Policy
-                      </a>
-                    </p>
-                    <p className="font-exo2 text-sm md:text-base">
-                      <a
-                        href="/terms-of-service"
-                        onClick={(e) => handleNavClick(e, 'terms-of-service')}
-                        className="hover:opacity-80 transition-opacity duration-300"
-                      >
-                        Terms of Service
-                      </a>
-                    </p>
-                    <p className="font-exo2 text-sm md:text-base">
-                      <a
-                        href="/cookie-policy"
-                        onClick={(e) => handleNavClick(e, 'cookie-policy')}
-                        className="hover:opacity-80 transition-opacity duration-300"
-                      >
-                        Cookie Policy
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Follow Us - Right Side - Steel Plate Box */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
-              <div className="screw-top-left"></div>
-              <div className="screw-top-right"></div>
-              <div className="screw-bottom-left"></div>
-              <div className="screw-bottom-right"></div>
-              
-              <div className="relative z-10 p-6 md:p-8">
-                <div className="flex flex-col items-center space-y-4 md:space-y-5">
-                  <h4 className="font-exo2 text-lg md:text-xl lg:text-2xl font-bold">FOLLOW US</h4>
-                  <a
-                    href="https://www.facebook.com/NicksLittleEngineShop"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg group"
-                  >
-                    <Facebook className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-blue-100" />
-                  </a>
-                </div>
+              <div className="text-center py-8 md:py-12 px-6 md:px-8">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4">
+                  CONTACT US
+                </h3>
+                <p className="font-exo2 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto">
+                  Ready to get your equipment running right? Contact us for all your small engine repair needs.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Copyright - Center Bottom - Steel Plate Box */}
-        <div className="flex justify-center mt-6 md:mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          {/* Contact Form - Steel Plate */}
           <div className="chrome-plate-service relative">
             {/* Corner Screws */}
             <div className="screw-top-left"></div>
@@ -111,18 +209,88 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
             <div className="screw-bottom-left"></div>
             <div className="screw-bottom-right"></div>
             
-            <div className="relative z-10 p-5 md:p-6">
-              <div className="text-center">
-                <p className="font-exo2 text-sm md:text-base">
-                  © 2025 Nick's Little Engine Shop. All rights reserved.
-                </p>
+            <div className="relative z-10 p-6 md:p-8">
+              <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT FORM</h4>
+              <ContactForm />
+            </div>
+          </div>
+
+          {/* Contact Info - Steel Plates */}
+          <div className="space-y-6 md:space-y-8">
+            
+            {/* Shop Hours Steel Plate */}
+            <div className="chrome-plate-service relative">
+              {/* Corner Screws */}
+              <div className="screw-top-left"></div>
+              <div className="screw-top-right"></div>
+              <div className="screw-bottom-left"></div>
+              <div className="screw-bottom-right"></div>
+              
+              <div className="relative z-10 p-6 md:p-8">
+                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">SHOP HOURS</h4>
+                <div className="space-y-3">
+                  <p className="font-exo2 text-base md:text-lg lg:text-xl flex justify-between">
+                    <span>Monday - Friday:</span>
+                    <span className="font-bold">8:30 AM - 4:30 PM</span>
+                  </p>
+                  <p className="font-exo2 text-base md:text-lg lg:text-xl flex justify-between">
+                    <span>Saturday:</span>
+                    <span className="font-bold">CLOSED</span>
+                  </p>
+                  <p className="font-exo2 text-base md:text-lg lg:text-xl flex justify-between">
+                    <span>Sunday:</span>
+                    <span className="font-bold">CLOSED</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info Steel Plate */}
+            <div className="chrome-plate-service relative">
+              {/* Corner Screws */}
+              <div className="screw-top-left"></div>
+              <div className="screw-top-right"></div>
+              <div className="screw-bottom-left"></div>
+              <div className="screw-bottom-right"></div>
+              
+              <div className="relative z-10 p-6 md:p-8">
+                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT INFO</h4>
+                <div className="space-y-4">
+                  <p className="font-exo2 text-base md:text-lg lg:text-xl flex items-center space-x-4">
+                    <Phone className="flex-shrink-0" size={24} aria-hidden="true" />
+                    <a href="tel:+15188930649" className="hover:text-yellow-400 transition-colors duration-300">
+                      (518) 893-0649
+                    </a>
+                  </p>
+                  <p className="font-exo2 text-base md:text-lg lg:text-xl flex items-start space-x-4">
+                    <Mail className="flex-shrink-0 mt-1" size={24} aria-hidden="true" />
+                    <a 
+                      href="mailto:nickslittleengineshop@yahoo.com"
+                      className="break-all hover:text-yellow-400 transition-colors duration-300"
+                    >
+                      nickslittleengineshop@yahoo.com
+                    </a>
+                  </p>
+                  <p className="font-exo2 text-base md:text-lg lg:text-xl flex items-start space-x-4">
+                    <MapPin className="flex-shrink-0 mt-1" size={24} aria-hidden="true" />
+                    <a 
+                      href="https://www.google.com/maps/place/Nick's+Little+Engine+Shop/@43.1175995,-73.9106941,17z/data=!3m1!4b1!4m6!3m5!1s0x89de489697ce5a95:0x403d055a71b7821d!8m2!3d43.1175956!4d-73.9081192!16s%2Fg%2F1tw1fv4l?entry=ttu&g_ep=EgoyMDI1MDYwOS4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-yellow-400 transition-colors duration-300 underline"
+                      aria-label="Open Nick's Little Engine Shop location in Google Maps"
+                    >
+                      504 Sandhill Road, Greenfield Center, NY 12833
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 
-export default Footer;
+export default Contact;
