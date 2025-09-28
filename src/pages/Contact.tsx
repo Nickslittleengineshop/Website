@@ -31,7 +31,6 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Create FormData instead of JSON
     const formDataToSend = new FormData();
     formDataToSend.append('name', formData.name);
     formDataToSend.append('email', formData.email);
@@ -68,11 +67,7 @@ const ContactForm: React.FC = () => {
     <>
       <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
         <div>
-          <label htmlFor="contact-name" className="sr-only">
-            Your Name (Required)
-          </label>
           <input
-            id="contact-name"
             type="text"
             name="name"
             value={formData.name}
@@ -80,15 +75,10 @@ const ContactForm: React.FC = () => {
             placeholder="Your Name *"
             className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
             required
-            aria-required="true"
           />
         </div>
         <div>
-          <label htmlFor="contact-email" className="sr-only">
-            Email Address (Required)
-          </label>
           <input
-            id="contact-email"
             type="email"
             name="email"
             value={formData.email}
@@ -96,34 +86,24 @@ const ContactForm: React.FC = () => {
             placeholder="Email Address *"
             className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
             required
-            aria-required="true"
           />
         </div>
         <div>
-          <label htmlFor="contact-phone" className="sr-only">
-            Phone Number (Optional)
-          </label>
           <input
-            id="contact-phone"
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
-            placeholder="Phone Number"
+            placeholder="Phone Number *"
             className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
           />
         </div>
         <div>
-          <label htmlFor="contact-service-type" className="sr-only">
-            Service Type (Optional)
-          </label>
           <select 
-            id="contact-service-type"
             name="serviceType"
             value={formData.serviceType}
             onChange={handleInputChange}
             className="w-full bg-gray-800 border border-gray-600 focus:border-yellow-400 text-white px-4 py-3 font-exo2 focus:outline-none transition-colors duration-300 text-base md:text-lg"
-            aria-label="Select the type of service you need"
           >
             <option value="">Select Service Type</option>
             <option value="Engine Repair">Engine Repair</option>
@@ -135,11 +115,7 @@ const ContactForm: React.FC = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="contact-message" className="sr-only">
-            Message about your equipment and what's wrong (Optional)
-          </label>
           <textarea
-            id="contact-message"
             name="message"
             value={formData.message}
             onChange={handleInputChange}
@@ -157,15 +133,14 @@ const ContactForm: React.FC = () => {
         </button>
       </form>
       
-      {/* Status Messages */}
       {submitStatus === 'success' && (
-        <div className="mt-4 p-4 bg-green-800 border border-green-600 rounded text-white text-center" role="alert">
+        <div className="mt-4 p-4 bg-green-800 border border-green-600 rounded text-white text-center">
           <p className="font-exo2">Message sent successfully! We'll get back to you soon.</p>
         </div>
       )}
       
       {submitStatus === 'error' && (
-        <div className="mt-4 p-4 bg-red-800 border border-red-600 rounded text-white text-center" role="alert">
+        <div className="mt-4 p-4 bg-red-800 border border-red-600 rounded text-white text-center">
           <p className="font-exo2">Error sending message. Please try again or call us directly.</p>
         </div>
       )}
@@ -182,7 +157,6 @@ const Contact: React.FC = () => {
         <div className="relative mb-10 md:mb-16">
           <div className="relative mx-auto max-w-4xl">
             <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
               <div className="screw-top-left"></div>
               <div className="screw-top-right"></div>
               <div className="screw-bottom-left"></div>
@@ -203,14 +177,13 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Form - Steel Plate */}
           <div className="chrome-plate-service relative">
-            {/* Corner Screws */}
             <div className="screw-top-left"></div>
             <div className="screw-top-right"></div>
             <div className="screw-bottom-left"></div>
             <div className="screw-bottom-right"></div>
             
             <div className="relative z-10 p-6 md:p-8">
-              <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT FORM</h4>
+              <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center">CONTACT FORM</h4>
               <ContactForm />
             </div>
           </div>
@@ -220,14 +193,13 @@ const Contact: React.FC = () => {
             
             {/* Shop Hours Steel Plate */}
             <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
               <div className="screw-top-left"></div>
               <div className="screw-top-right"></div>
               <div className="screw-bottom-left"></div>
               <div className="screw-bottom-right"></div>
               
               <div className="relative z-10 p-6 md:p-8">
-                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">SHOP HOURS</h4>
+                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center">SHOP HOURS</h4>
                 <div className="space-y-3">
                   <p className="font-exo2 text-base md:text-lg lg:text-xl flex justify-between">
                     <span>Monday - Friday:</span>
@@ -247,38 +219,29 @@ const Contact: React.FC = () => {
 
             {/* Contact Info Steel Plate */}
             <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
               <div className="screw-top-left"></div>
               <div className="screw-top-right"></div>
               <div className="screw-bottom-left"></div>
               <div className="screw-bottom-right"></div>
               
               <div className="relative z-10 p-6 md:p-8">
-                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6">CONTACT INFO</h4>
+                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center">CONTACT INFO</h4>
                 <div className="space-y-4">
                   <p className="font-exo2 text-base md:text-lg lg:text-xl flex items-center space-x-4">
-                    <Phone className="flex-shrink-0" size={24} aria-hidden="true" />
-                    <a href="tel:+15188930649" className="hover:text-yellow-400 transition-colors duration-300">
-                      (518) 893-0649
-                    </a>
+                    <Phone className="flex-shrink-0" size={24} />
+                    <span>(518) 893-0649</span>
                   </p>
                   <p className="font-exo2 text-base md:text-lg lg:text-xl flex items-start space-x-4">
-                    <Mail className="flex-shrink-0 mt-1" size={24} aria-hidden="true" />
-                    <a 
-                      href="mailto:nickslittleengineshop@yahoo.com"
-                      className="break-all hover:text-yellow-400 transition-colors duration-300"
-                    >
-                      nickslittleengineshop@yahoo.com
-                    </a>
+                    <Mail className="flex-shrink-0 mt-1" size={24} />
+                    <span className="break-all">nickslittleengineshop@yahoo.com</span>
                   </p>
                   <p className="font-exo2 text-base md:text-lg lg:text-xl flex items-start space-x-4">
-                    <MapPin className="flex-shrink-0 mt-1" size={24} aria-hidden="true" />
+                    <MapPin className="flex-shrink-0 mt-1" size={24} />
                     <a 
-                      href="https://www.google.com/maps/place/Nick's+Little+Engine+Shop/@43.1175995,-73.9106941,17z/data=!3m1!4b1!4m6!3m5!1s0x89de489697ce5a95:0x403d055a71b7821d!8m2!3d43.1175956!4d-73.9081192!16s%2Fg%2F1tw1fv4l?entry=ttu&g_ep=EgoyMDI1MDYwOS4wIKXMDSoASAFQAw%3D%3D"
+                      href="https://www.google.com/maps/place/Nick's+Little+Engine+Shop/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-yellow-400 transition-colors duration-300 underline"
-                      aria-label="Open Nick's Little Engine Shop location in Google Maps"
                     >
                       504 Sandhill Road, Greenfield Center, NY 12833
                     </a>
@@ -286,6 +249,25 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Service Areas Steel Plate */}
+            <div className="chrome-plate-service relative">
+              <div className="screw-top-left"></div>
+              <div className="screw-top-right"></div>
+              <div className="screw-bottom-left"></div>
+              <div className="screw-bottom-right"></div>
+
+              <div className="relative z-10 p-6 md:p-8">
+                <h4 className="font-exo2 text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center">SERVICE AREAS</h4>
+                <div className="text-center">
+                  <p className="font-exo2 text-base md:text-lg lg:text-xl leading-relaxed">
+                    Saratoga Springs • Corinth • Greenwich • Galaway • Lake George •
+                    Glens Falls • Ballston Spa • Burnt Hills • Clifton Park and surrounding areas
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
