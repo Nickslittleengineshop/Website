@@ -86,7 +86,9 @@ const HeroSlider: React.FC = () => {
           />
         </div>
       ))}
-
+       {/* Bottom-only fade over hero (no other changes) */}
+      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 md:h-32 bg-gradient-to-b from-transparent to-black z-[9]" />
+      
       {/* Navigation Arrows - Mobile Optimized with proper touch targets */}
       <button
         onClick={prevSlide}
