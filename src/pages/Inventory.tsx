@@ -50,9 +50,18 @@ const Inventory: React.FC<InventoryProps> = ({ onViewAllInventory }) => {
   };
 
   return (
-    <section id="inventory" className="py-12 md:py-20 bg-black relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-900 to-black opacity-50"></div>
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+<section id="inventory" className="py-12 md:py-20 bg-black relative">
+  <div className="absolute inset-0 opacity-5">
+    <div
+      className="w-full h-full bg-repeat"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' ry='4' fill='rgba(255,255,255,0.02)'/%3E%3Crect x='6' y='6' width='20' height='20' rx='4' ry='4' fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'/%3E%3C/svg%3E")`,
+        backgroundSize: '32px 32px',
+      }}
+    />
+  </div>
+  <div className="container mx-auto px-4 md:px-6 relative z-10">
+
         
         {/* STEEL PLATE HEADER */}
         <div className="relative mb-10 md:mb-16">
