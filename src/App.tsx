@@ -271,11 +271,6 @@ function App() {
 
       {/* Services Section - Chrome Steel Plate Design */}
       <section id="services" className="py-12 md:py-20 bg-black relative">
-        <div className="absolute inset-0 opacity-5">
-          <div className="w-full h-full bg-repeat" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="chrome-plate-service relative">
