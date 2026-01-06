@@ -545,3 +545,19 @@ textarea:focus {
 h1, h2, h3, h4, h5, h6, p, span, div, button, input, select, textarea, label, a {
   font-family: 'Exo 2', sans-serif !important;
 }
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  border: 2px solid #fff;
+}
+
+.skip-link:focus {
+  top: 0;
+}
