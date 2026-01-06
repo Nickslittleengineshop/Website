@@ -7,7 +7,6 @@ import {
 import { CookieBanner, CookiePreferencesModal, CookiePreferences } from './components/CookieBanner';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
 import InventoryPage from './pages/InventoryPage';
 import Navigation from './components/Layout/Navigation';
 import Footer from './components/Layout/Footer';
