@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Wrench, 
-  Award, 
-  Star
-} from 'lucide-react';
+import { Star } from 'lucide-react';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import InventoryPage from './pages/InventoryPage';
@@ -44,7 +40,7 @@ function App() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hidePoint, setHidePoint] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'privacy-policy' | 'terms-of-service' | 'inventory-page'>('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,12 +74,7 @@ function App() {
   }, [lastScrollY, isNavVisible, hidePoint]);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -125,7 +116,7 @@ function App() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -141,7 +132,7 @@ function App() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -160,7 +151,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Navigation 
+      <Navigation
         isNavVisible={isNavVisible}
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
@@ -169,10 +160,101 @@ function App() {
 
       <HeroSlider />
 
-      {/* Services Section */}
-      {/* (unchanged — omitted here for brevity in explanation, but unchanged in your file) */}
+      {/* REPAIR SERVICES */}
+      <section id="services" className="py-12 md:py-20 bg-black relative">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="chrome-plate-service relative">
+              <div className="screw-top-left"></div>
+              <div className="screw-top-right"></div>
+              <div className="screw-bottom-left"></div>
+              <div className="screw-bottom-right"></div>
+
+              <div className="relative z-10 p-6 md:p-8">
+                <div className="text-center mb-6 md:mb-8">
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4">REPAIR SERVICES</h3>
+                  <p className="font-exo2 text-lg md:text-xl lg:text-2xl">
+                    We work on all types of small engines. If you can pour gas in it, we can get it running.
+                  </p>
+                </div>
+
+                <div className="space-y-4 md:space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-gray-800 rounded-full mt-3"></div>
+                      <div>
+                        <h4 className="font-exo2 text-2xl font-bold mb-1">Engine Diagnostics</h4>
+                        <p className="font-exo2 text-lg">Identify and diagnose engine problems</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-gray-800 rounded-full mt-3"></div>
+                      <div>
+                        <h4 className="font-exo2 text-2xl font-bold mb-1">Routine Maintenance</h4>
+                        <p className="font-exo2 text-lg">Oil changes, filters, spark plugs</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center mt-6 md:mt-8">
+                  <button
+                    onClick={handleServiceQuoteClick}
+                    className="steel-button font-exo2 font-bold py-4 px-10 text-2xl text-red-600"
+                  >
+                    GET SERVICE QUOTE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Inventory onViewAllInventory={handleViewAllInventory} />
+
+      {/* WHY CHOOSE US */}
+      <section id="about" className="py-12 md:py-20 bg-black relative">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="chrome-plate-service relative">
+              <div className="screw-top-left"></div>
+              <div className="screw-top-right"></div>
+              <div className="screw-bottom-left"></div>
+              <div className="screw-bottom-right"></div>
+
+              <div className="relative z-10 p-6 md:p-8">
+                <h3 className="text-center text-4xl font-bold mb-6">WHY CHOOSE US</h3>
+                <p className="text-center font-exo2 text-lg">Real mechanics who know how to get the job done.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CUSTOMER REVIEWS */}
+      <section id="reviews" className="py-12 md:py-20 bg-black relative">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-center text-4xl font-bold mb-8">CUSTOMER REVIEWS</h3>
+            <div className="space-y-6">
+              <ReviewCard
+                name="Chris Clark"
+                rating={5}
+                equipment="Snowblower"
+                review="Nick has serviced my snowblower and both mowers. He explains everything clearly and prices are fair."
+              />
+              <ReviewCard
+                name="Tom Washburn"
+                rating={5}
+                equipment="Snowblower"
+                review="Saved me right before a snowstorm. Fast and affordable."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Contact />
       <Footer handleNavClick={handleNavClick} />
     </div>
