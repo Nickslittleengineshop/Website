@@ -109,11 +109,6 @@ function App() {
       return;
     }
 
-    if (sectionId === 'cookie-policy') {
-      setCurrentPage('cookie-policy');
-      return;
-    }
-
     if (sectionId === 'inventory-page') {
       setCurrentPage('inventory-page');
       return;
