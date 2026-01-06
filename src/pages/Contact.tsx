@@ -100,6 +100,7 @@ const ContactForm: React.FC = () => {
         </div>
         <div>
           <select 
+            aria-label="Service Type"
             name="serviceType"
             value={formData.serviceType}
             onChange={handleInputChange}
