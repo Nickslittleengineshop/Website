@@ -14,7 +14,6 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
           {/* Logo - Left Side - Steel Plate Box */}
           <div className="flex justify-center lg:justify-start">
             <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
               <div className="screw-top-left"></div>
               <div className="screw-top-right"></div>
               <div className="screw-bottom-left"></div>
@@ -22,8 +21,7 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
               
               <div className="relative z-10 p-6 md:p-8">
                 <img 
-                  src="https://raw.githubusercontent.com/Nickslittleengineshop/website-images/main/Nick's%20little%20engine%20shop%20logo.webp
-" 
+                  src="https://raw.githubusercontent.com/Nickslittleengineshop/website-images/main/Nick's%20little%20engine%20shop%20logo.webp"
                   alt="Nick's Little Engine Shop Logo" 
                   className="h-20 md:h-28 w-auto transition-opacity duration-300 hover:opacity-80"
                 />
@@ -34,7 +32,6 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
           {/* Legal - Center - Steel Plate Box */}
           <div className="flex justify-center">
             <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
               <div className="screw-top-left"></div>
               <div className="screw-top-right"></div>
               <div className="screw-bottom-left"></div>
@@ -62,15 +59,6 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
                         Terms of Service
                       </a>
                     </p>
-                    <p className="font-exo2 text-sm md:text-base">
-                      <a
-                        href="/cookie-policy"
-                        onClick={(e) => handleNavClick(e, 'cookie-policy')}
-                        className="hover:opacity-80 transition-opacity duration-300"
-                      >
-                        Cookie Policy
-                      </a>
-                    </p>
                   </div>
                 </div>
               </div>
@@ -80,7 +68,6 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
           {/* Follow Us - Right Side - Steel Plate Box */}
           <div className="flex justify-center lg:justify-end">
             <div className="chrome-plate-service relative">
-              {/* Corner Screws */}
               <div className="screw-top-left"></div>
               <div className="screw-top-right"></div>
               <div className="screw-bottom-left"></div>
@@ -103,10 +90,9 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
           </div>
         </div>
 
-        {/* Copyright - Center Bottom - Steel Plate Box */}
+        {/* Copyright */}
         <div className="flex justify-center mt-6 md:mt-8">
           <div className="chrome-plate-service relative">
-            {/* Corner Screws */}
             <div className="screw-top-left"></div>
             <div className="screw-top-right"></div>
             <div className="screw-bottom-left"></div>
@@ -121,6 +107,7 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
             </div>
           </div>
         </div>
+
       </div>
     </footer>
   );
