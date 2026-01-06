@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
 import InventoryPage from './pages/InventoryPage';
 import Navigation from './components/Layout/Navigation';
 import Footer from './components/Layout/Footer';
@@ -162,7 +161,6 @@ function App() {
 
   if (currentPage === 'privacy-policy') return <PrivacyPolicy />;
   if (currentPage === 'terms-of-service') return <TermsOfService />;
-  if (currentPage === 'cookie-policy') return <CookiePolicy />;
   if (currentPage === 'inventory-page') return <InventoryPage onBackToHome={handleBackToHome} />;
 
   return (
