@@ -4,7 +4,6 @@ import {
   Award, 
   Star
 } from 'lucide-react';
-import { CookieBanner, CookiePreferencesModal, CookiePreferences } from './components/CookieBanner';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import InventoryPage from './pages/InventoryPage';
@@ -46,59 +45,6 @@ function App() {
   const [hidePoint, setHidePoint] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
-  
-  // Cookie consent state
-  const [showCookieBanner, setShowCookieBanner] = useState(false);
-  const [showCookiePreferences, setShowCookiePreferences] = useState(false);
-  const [cookieConsent, setCookieConsent] = useState<CookiePreferences | null>(null);
-
-  useEffect(() => {
-    // Check if user has already given cookie consent
-    const savedConsent = localStorage.getItem('cookieConsent');
-    if (savedConsent) {
-      setCookieConsent(JSON.parse(savedConsent));
-    } else {
-      // Show banner after a short delay
-      const timer = setTimeout(() => {
-        setShowCookieBanner(true);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleCookieAccept = () => {
-    const allAccepted: CookiePreferences = {
-      necessary: true,
-      analytics: true,
-      marketing: true,
-      functional: true,
-    };
-    setCookieConsent(allAccepted);
-    localStorage.setItem('cookieConsent', JSON.stringify(allAccepted));
-    setShowCookieBanner(false);
-  };
-
-  const handleCookieDecline = () => {
-    const onlyNecessary: CookiePreferences = {
-      necessary: true,
-      analytics: false,
-      marketing: false,
-      functional: false,
-    };
-    setCookieConsent(onlyNecessary);
-    localStorage.setItem('cookieConsent', JSON.stringify(onlyNecessary));
-    setShowCookieBanner(false);
-  };
-
-  const handleCookieCustomize = () => {
-    setShowCookiePreferences(true);
-  };
-
-  const handleCookiePreferencesSave = (preferences: CookiePreferences) => {
-    setCookieConsent(preferences);
-    localStorage.setItem('cookieConsent', JSON.stringify(preferences));
-    setShowCookieBanner(false);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -169,11 +115,6 @@ function App() {
       return;
     }
     
-    if (sectionId === 'cookie-policy') {
-      setCurrentPage('cookie-policy');
-      return;
-    }
-    
     if (sectionId === 'inventory-page') {
       setCurrentPage('inventory-page');
       return;
@@ -230,7 +171,6 @@ function App() {
   if (currentPage === 'terms-of-service') {
     return <TermsOfService />;
   }
-  
 
   if (currentPage === 'inventory-page') {
     return <InventoryPage onBackToHome={handleBackToHome} />;
@@ -238,22 +178,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Cookie Banner */}
-      {showCookieBanner && (
-        <CookieBanner
-          onAccept={handleCookieAccept}
-          onDecline={handleCookieDecline}
-          onCustomize={handleCookieCustomize}
-        />
-      )}
-
-      {/* Cookie Preferences Modal */}
-      <CookiePreferencesModal
-        isOpen={showCookiePreferences}
-        onClose={() => setShowCookiePreferences(false)}
-        onSave={handleCookiePreferencesSave}
-      />
-
       {/* Navigation */}
       <Navigation 
         isNavVisible={isNavVisible}
