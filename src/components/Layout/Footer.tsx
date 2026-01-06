@@ -11,7 +11,7 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
           
-          {/* Logo - Left Side - Steel Plate Box */}
+          {/* Logo */}
           <div className="flex justify-center lg:justify-start">
             <div className="chrome-plate-service relative">
               <div className="screw-top-left"></div>
@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
             </div>
           </div>
 
-          {/* Legal - Center - Steel Plate Box */}
+          {/* Legal */}
           <div className="flex justify-center">
             <div className="chrome-plate-service relative">
               <div className="screw-top-left"></div>
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
             </div>
           </div>
 
-          {/* Follow Us - Right Side - Steel Plate Box */}
+          {/* Follow Us */}
           <div className="flex justify-center lg:justify-end">
             <div className="chrome-plate-service relative">
               <div className="screw-top-left"></div>
@@ -80,14 +80,17 @@ const Footer: React.FC<FooterProps> = ({ handleNavClick }) => {
                     href="https://www.facebook.com/NicksLittleEngineShop"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Nick's Little Engine Shop on Facebook"
                     className="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition-all duration-300 transform hover:scale-110 shadow-lg group"
                   >
                     <Facebook className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-blue-100" />
+                    <span className="sr-only">Nick's Little Engine Shop on Facebook</span>
                   </a>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
 
         {/* Copyright */}
