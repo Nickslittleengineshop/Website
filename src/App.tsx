@@ -178,6 +178,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* Skip to main content link for accessibility */}
+      <a href="#main-content" className="skip-link sr-only">
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <Navigation 
         isNavVisible={isNavVisible}
@@ -186,8 +191,10 @@ function App() {
         handleNavClick={handleNavClick}
       />
 
-      {/* Hero Section */}
-      <HeroSlider />
+      {/* Main Content */}
+      <main id="main-content">
+        {/* Hero Section */}
+        <HeroSlider />
 
       {/* Services Section - Chrome Steel Plate Design */}
       <section id="services" className="py-12 md:py-20 bg-black relative">
@@ -437,6 +444,7 @@ function App() {
 
       {/* Footer */}
       <Footer handleNavClick={handleNavClick} />
+      </main>
     </div>
   );
 }
