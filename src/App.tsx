@@ -231,9 +231,6 @@ function App() {
     return <TermsOfService />;
   }
   
-  if (currentPage === 'cookie-policy') {
-    return <CookiePolicy />;
-  }
 
   if (currentPage === 'inventory-page') {
     return <InventoryPage onBackToHome={handleBackToHome} />;
